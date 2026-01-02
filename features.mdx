@@ -1,0 +1,135 @@
+---
+title: Core Features
+description: Explore the primary tools and functionalities of Michael / Michlstfns for effective documentation management and collaboration.
+---
+
+## Overview
+
+Michael / Michlstfns provides powerful tools to streamline your documentation workflow. You organize content into hierarchical sections, collaborate with teams in real-time, track changes with version control, and leverage search and export features for maximum efficiency. These core features help you maintain a living knowledge base that scales with your project.
+
+## Key Features
+
+<Columns cols={2}>
+  <Card title="Document Organization" icon="folder" href="#organizing">
+    Structure your docs into nested sections and pages effortlessly.
+  </Card>
+  <Card title="Collaboration Tools" icon="users" href="#collaboration">
+    Share, comment, and co-edit with your team securely.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="#version-control">
+    Track changes and revert to previous versions easily.
+  </Card>
+  <Card title="Search & Export" icon="search" href="#search-export">
+    Find content quickly and export to various formats.
+  </Card>
+</Columns>
+
+## Organizing Documents and Sections
+
+Create a clear structure for your documentation using sections and pages. You nest content hierarchically to reflect your project's architecture.
+
+<Steps>
+  <Step title="Create a Section" icon="plus">
+    Navigate to the sidebar and click "New Section". Enter a name like "API Reference".
+  </Step>
+  <Step title="Add Pages" icon="file-text">
+    Within the section, select "New Page". Use the YAML frontmatter to set metadata.
+  </Step>
+  <Step title="Reorder Content" icon="move">
+    Drag and drop sections or pages to customize the navigation order.
+  </Step>
+</Steps>
+
+```yaml
+---
+title: API Endpoints
+description: Core API documentation
+sidebar_position: 2
+---
+```
+
+<Callout kind="tip">
+  Use `sidebar_position` in frontmatter to control exact ordering numerically.
+</Callout>
+
+## Collaboration and Sharing Options
+
+Invite team members and control access levels. You share docs publicly or privately as needed.
+
+<Tabs>
+  <Tab title="Team Collaboration" icon="users">
+    Assign roles like Editor or Viewer.
+
+    ```javascript
+    // Invite via API
+    await fetch('https://api.example.com/v1/invites', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${YOUR_API_KEY}` },
+      body: JSON.stringify({
+        email: 'team@company.com',
+        role: 'editor'
+      })
+    });
+    ```
+
+    Real-time edits sync instantly across users.
+  </Tab>
+  <Tab title="Public Sharing" icon="globe">
+    Generate shareable links with read-only access.
+
+    Set permissions in the page settings to "Public Read".
+  </Tab>
+</Tabs>
+
+## Version Control for Docs
+
+Maintain history without external tools. You commit changes, view diffs, and rollback seamlessly.
+
+<CodeGroup tabs="CLI,API">
+  ```bash
+  # Commit changes via CLI
+  mdx commit -m "Add authentication guide"
+  mdx diff HEAD~1
+  mdx revert HEAD~1
+  ```
+  ```javascript
+  // API for version management
+  const versions = await fetch('https://api.example.com/v1/pages/my-page/versions', {
+    headers: { Authorization: `Bearer ${YOUR_API_KEY}` }
+  }).then(res => res.json());
+  ```
+</CodeGroup>
+
+<Callout kind="info">
+  All changes auto-save drafts; publish to create versions.
+</Callout>
+
+## Search and Export Capabilities
+
+Search across all docs with full-text indexing. Export to PDF, HTML, or Markdown.
+
+<Expandable title="Advanced Search Filters" default-open="false">
+
+Filter by section, date, or author:
+
+| Filter Type | Example Query       | Description                  |
+|-------------|---------------------|------------------------------|
+| Section     | `section:api`       | Limits to API section        |
+| Date Range  | `date:>2024-01-01`  | Recent changes only          |
+| Author      | `author:john`       | Content by specific user     |
+
+</Expandable>
+
+```bash
+# Export entire project
+mdx export --format=pdf --output=./docs.pdf
+```
+
+<Columns cols={2}>
+  <Card title="Next: Quickstart" icon="rocket" href="/quickstart">
+    Set up your first project.
+  </Card>
+  <Card title="Authentication" icon="lock" href="/authentication">
+    Secure your docs.
+  </Card>
+</Columns>

@@ -1,0 +1,103 @@
+---
+title: Introduction to Michael / Michlstfns
+description: Discover the essentials of Michael / Michlstfns, a versatile documentation platform designed for organizing and managing project documentation efficiently.
+---
+
+## Overview
+
+Michael / Michlstfns provides a powerful documentation space where you organize, manage, and share all your project documentation. You create structured pages using MDX, leverage rich components for interactive content, and maintain a professional knowledge base effortlessly. Designed for developers, teams, and projects of any size, it streamlines your workflow from initial setup to advanced publishing.
+
+## Key Features
+
+Explore the core capabilities that make Michael / Michlstfns stand out.
+
+<Columns cols={3}>
+  <Card title="Rich MDX Components" icon="components" href="#quick-start">
+    Build engaging docs with components like Cards, Steps, and Tabs. No custom coding required.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="/changelog">
+    Track changes with built-in versioning and changelog support using the `<Update>` component.
+  </Card>
+  <Card title="Customizable Themes" icon="palette" href="#brand-guidelines">
+    Tailor your docs with brand colors like `#3B82F6` and custom styling.
+  </Card>
+</Columns>
+
+## Quick Start
+
+Get up and running in minutes. Follow these steps to create your first documentation page.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Visit `https://michael.michlstfns.com` and create your account. No credit card needed.
+  </Step>
+  <Step title="Create Workspace" icon="folder-plus">
+    Set up a new documentation space for your project.
+  </Step>
+  <Step title="Add First Page" icon="file-plus">
+    Use the MDX editor to draft your `introduction.mdx` page.
+  </Step>
+  <Step title="Publish" icon="globe">
+    Preview and publish your docs live.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="npm,yarn">
+  ```bash
+  npm install mdx-documentation-kit
+  ```
+  ```bash
+  yarn add mdx-documentation-kit
+  ```
+</CodeGroup>
+
+## Navigation Guide
+
+Quickly access key sections based on your needs.
+
+<Tabs>
+  <Tab title="Beginners" icon="book-open">
+    Start with [Quickstart](/quickstart) for setup instructions.
+    
+    Use [Authentication](/authentication) to secure your space.
+  </Tab>
+  <Tab title="Advanced" icon="code">
+    Dive into [Changelog](/changelog) for updates.
+    
+    Customize with brand guidelines below.
+  </Tab>
+</Tabs>
+
+## Brand Guidelines
+
+Follow these guidelines to maintain consistency across your documentation.
+
+<Callout kind="info">
+  Primary brand color: `#3B82F6`. Use it for accents, buttons, and links.
+</Callout>
+
+```css
+:root {
+  --brand-primary: #3B82F6;
+  --brand-text: #1F2937;
+}
+
+.button {
+  background-color: var(--brand-primary);
+  color: white;
+}
+```
+
+<Expandable title="Advanced Customization" default-open="false">
+  Override CSS variables in your theme file:
+  
+  ```javascript
+  export const theme = {
+    colors: {
+      primary: '#3B82F6'
+    }
+  };
+  ```
+</Expandable>
+
+Ready to build? Head to the [Quickstart](/quickstart) next.
